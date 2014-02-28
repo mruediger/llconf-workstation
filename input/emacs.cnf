@@ -1,0 +1,2 @@
+(emacs-ready (and
+    (test "echo" "todo")))

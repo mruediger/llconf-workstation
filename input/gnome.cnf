@@ -1,0 +1,25 @@
+(gnome-ready
+   (and (gnome-shortcuts)
+        (gnome-wm-settings)
+        (gnome-terminal-solarized)))
+
+
+(gnome-shortcuts
+   (and (gsettings "org.gnome.desktop.wm.keybindings" "switch-to-workspace-up" "['<Alt>Left']")
+        (gsettings "org.gnome.desktop.wm.keybindings" "switch-to-workspace-down" "['<Alt>Right']")
+        (gsettings "org.gnome.desktop.wm.keybindings" "move-to-workspace-down" "['<Primary><Alt>Right']")
+        (gsettings "org.gnome.desktop.wm.keybindings" "move-to-workspace-up" "['<Primary><Alt>Left']")
+        (gsettings "org.gnome.desktop.wm.keybindings" "toggle-maximized" "['<Alt>F3']")
+        (gsettings "org.gnome.desktop.wm.keybindings" "toggle-above" "['<Super>T']")))
+
+(gnome-wm-settings
+   (and (gsettings "org.gnome.desktop.wm.preferences" "focus-mode" "'sloppy'")
+        (gsettings "org.gnome.desktop.wm.preferences" "raise-on-click" "true")
+        (gsettings "org.gnome.desktop.wm.preferences" "resize-with-right-button" "true")
+        (gsettings "org.gnome.desktop.wm.preferences" "mouse-button-modifier" "'<Alt>'")))
+
+(gnome-terminal-solarized
+   (test "echo"))
+
+(gsettings
+   (change "gsettings" "set" [arg:0] [arg:1] [arg:2]))
