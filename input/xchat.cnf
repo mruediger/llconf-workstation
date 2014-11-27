@@ -3,8 +3,8 @@
        (xchat configured)))
 
 (xchat installed
-   (install "xchat"))
+   (installed "xchat"))
 
 (xchat configured
-   (and (copy template "xchat.conf" [join [env:HOME] "/.config/xchat2/xchat.conf")
-        (copy template "servlist_.conf" [join [env:HOME] "/.config/xchat2/servlist_.conf"]))))
+   (and (copy template "xchat.conf" [join [env:HOME] "/.config/xchat2/xchat.conf"])
+        (copy template "servlist_.conf" [join [env:HOME] "/.config/xchat2/servlist_.conf"])))
