@@ -27,7 +27,6 @@ ${orange}→${normal} "
 
 eval `dircolors ~/.dircolors`
 
-export GREP_OPTIONS='--binary-files=without-match --directories=skip'
 export JAVA_HOME="/etc/alternatives/java_sdk_openjdk/"
 export PATH=$PATH:$HOME/.local/bin
 export GOPATH=$HOME/src/go
@@ -37,5 +36,6 @@ export PATH=$PATH:$GOROOT/bin
 
 alias ls='ls --color=tty'
 alias en='emacs -nw'
+alias grep='grep --binary-files=without-match --directories=skip'
 
 export PATH="$PATH:$HOME/.rvm/bin"
