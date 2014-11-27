@@ -1,2 +1,11 @@
-(emacs-ready (and
-    (test "echo" "todo")))
+(emacs-ready (and (emacs installed)
+	          (emacs configured)))
+
+(emacs installed
+   (and (installed "emacs")
+        (installed "google-droid-sans-mono-fonts")))
+
+
+(emacs configured
+   (git clone "git://github.com/mruediger/emacsd.git" [join [env:HOME] "/.emacs.d"]))
+

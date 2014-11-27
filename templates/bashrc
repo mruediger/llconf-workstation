@@ -1,0 +1,41 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+if [ -f ~/.bash_d3media ]; then
+  . ~/.bash_d3media
+fi
+
+HISTSIZE=2000
+
+# PROMPT
+my_ps_user="\[\033[01;32m\]\u\[\033[00m\]";
+my_ps_host="\[\033[01;36m\]\h\[\033[00m\]";
+my_ps_path="\[\033[01;36m\]\w\[\033[00m\]";
+
+normal="\[\e[0m\]"
+orange="\[\e[0;91m\]"
+
+SCM_THEME_PROMPT_DIRTY=" ${red}✗"
+SCM_THEME_PROMPT_CLEAN=" ${green}✓"
+
+PS1="${my_ps_user}@${my_ps_host}:${my_ps_path}
+${orange}→${normal} "
+
+eval `dircolors ~/.dircolors`
+
+export GREP_OPTIONS='--binary-files=without-match --directories=skip'
+export JAVA_HOME="/etc/alternatives/java_sdk_openjdk/"
+export PATH=$PATH:$HOME/.local/bin
+export GOPATH=$HOME/src/go
+export PATH=$PATH:$GOPATH/bin
+export GOROOT=$HOME/install/go
+export PATH=$PATH:$GOROOT/bin
+
+alias ls='ls --color=tty'
+alias en='emacs -nw'
+
+export PATH="$PATH:$HOME/.rvm/bin"

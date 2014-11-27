@@ -1,8 +1,9 @@
-(gnome-ready
-   (and (gnome-shortcuts)
+(gnome-ready (and
+        (gnome-shortcuts)
+        (gnome-command-shortcuts)
         (gnome-wm-settings)
+        (gnome-folders)
         (gnome-terminal-solarized)))
-
 
 (gnome-shortcuts
    (and (gsettings "org.gnome.desktop.wm.keybindings" "switch-to-workspace-up" "['<Alt>Left']")
@@ -10,7 +11,12 @@
         (gsettings "org.gnome.desktop.wm.keybindings" "move-to-workspace-down" "['<Primary><Alt>Right']")
         (gsettings "org.gnome.desktop.wm.keybindings" "move-to-workspace-up" "['<Primary><Alt>Left']")
         (gsettings "org.gnome.desktop.wm.keybindings" "toggle-maximized" "['<Alt>F3']")
-        (gsettings "org.gnome.desktop.wm.keybindings" "toggle-above" "['<Super>T']")))
+        (gsettings "org.gnome.desktop.wm.keybindings" "toggle-above" "['<Super>T']")
+	(gsettings "org.gnome.settings-daemon.plugins.media-keys" "calculator" "'<Primary>F3'")
+	(gsettings "org.gnome.settings-daemon.plugins.media-keys" "home" "'<Primary>F1'")))
+
+(gnome-command-shortcuts
+   (and (dconf "gnome-shortcuts.dconf")))
 
 (gnome-wm-settings
    (and (gsettings "org.gnome.desktop.wm.preferences" "focus-mode" "'sloppy'")
@@ -19,7 +25,37 @@
         (gsettings "org.gnome.desktop.wm.preferences" "mouse-button-modifier" "'<Alt>'")))
 
 (gnome-terminal-solarized
-   (test "echo"))
+   (and (git clone "git://github.com/sigurdga/gnome-terminal-colors-solarized.git"
+		   [join [env:HOME] "/src/solarized/gnome-terminal"])
+	(change [join [env:HOME] "/src/solarized/gnome-terminal/install.sh"] "-s" "dark" "-p" "solarized")))
+
+(gnome-folders
+   (and (copy template "user-dirs.dirs" [join [env:HOME] "/.config/user-dirs.dirs"])
+        (ensure dir [join [env:HOME] "/downloads"])
+        (ensure dir [join [env:HOME] "/doc/templates"])
+        (ensure dir [join [env:HOME] "/public"])
+        (ensure dir [join [env:HOME] "/media/music"])
+        (ensure dir [join [env:HOME] "/media/pictures"])
+        (ensure dir [join [env:HOME] "/media/videos"])
+        (ensure dir [join [env:HOME] "/tmp"])
+        (delete dir [join [env:HOME] "/Music"])
+        (delete dir [join [env:HOME] "/Templates"])
+        (delete dir [join [env:HOME] "/Desktop"])
+        (delete dir [join [env:HOME] "/Documents"])
+        (delete dir [join [env:HOME] "/Downloads"])
+        (delete dir [join [env:HOME] "/Pictures"])
+        (delete dir [join [env:HOME] "/Public"])
+        (delete dir [join [env:HOME] "/Videos"])))
+
+
+
+
+########
+
 
 (gsettings
    (change "gsettings" "set" [arg:0] [arg:1] [arg:2]))
+
+(dconf
+   (pipe (test "cat" [join [var:workdir] "/templates"])
+         (change "dconf" "load" "/")))

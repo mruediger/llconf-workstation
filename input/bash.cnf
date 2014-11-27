@@ -1,0 +1,5 @@
+(bash-ready
+   (and (bashrc installed)))
+
+(bashrc installed
+   (copy template "bashrc" [join [env:HOME] "/.bashrc"]))

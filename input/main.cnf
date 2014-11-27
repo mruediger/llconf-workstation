@@ -1,2 +1,4 @@
-(done (and (gnome-ready)
-           (emacs-ready)))
+(done (and (bash-ready)
+           (gnome-ready)
+           (emacs-ready)
+           (idea-ready)))
