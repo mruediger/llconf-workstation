@@ -1,0 +1,6 @@
+(repositories-ready
+        (and (rpmfusion)))
+
+(rpmfusion
+   (and (repo installed "rpmfusion-free-release" "http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-21.noarch.rpm")
+        (repo installed "rpmfusion-nonfree-release" "http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm")))
