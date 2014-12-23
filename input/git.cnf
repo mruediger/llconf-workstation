@@ -6,4 +6,5 @@
 
 (git configured
   (and (change "git" "config" "--global" "user.name" "Mathias Rüdiger")
-       (change "git" "config" "--global" "user.email" "ruediger@blueboot.org")))
+       (change "git" "config" "--global" "user.email" "ruediger@blueboot.org")
+       (change "git" "config" "--global" "push.default" "simple")))
