@@ -1,0 +1,9 @@
+(git ready (and (git installed)
+                (git configured)))
+
+(git installed
+  (installed "git"))
+
+(git configured
+  (and (change "git" "config" "--global" "user.name" "Mathias Rüdiger")
+       (change "git" "config" "--global" "user.email" "ruediger@blueboot.org")))

@@ -1,4 +1,5 @@
 (done (and (bash-ready)
+           (git ready)
            (gnome-ready)
            (emacs-ready)
            (idea-ready)))
