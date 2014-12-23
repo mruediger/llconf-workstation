@@ -1,0 +1,2 @@
+(hostname
+  (pipe (test "hostname") (test "grep" [arg:0])))
