@@ -1,4 +1,4 @@
-(bash-ready
+(bash ready
    (and (bashrc installed)))
 
 (bashrc installed

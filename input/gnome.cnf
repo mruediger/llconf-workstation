@@ -1,12 +1,12 @@
-(gnome-ready (and
-        (gnome-shortcuts)
-        (gnome-command-shortcuts)
-        (gnome-wm-settings)
-        (gnome-folders)
-        (gnome-terminal)
-        (gnome-terminal-solarized)))
+(gnome ready (and
+        (gnome shortcuts)
+        (gnome command shortcuts)
+        (gnome wm settings)
+        (gnome folders)
+        (gnome terminal)
+        (gnome terminal solarized)))
 
-(gnome-shortcuts
+(gnome shortcuts
    (and (gsettings "org.gnome.desktop.wm.keybindings" "toggle-maximized" "['<Alt>F3']")
         (gsettings "org.gnome.desktop.wm.keybindings" "toggle-above" "['<Super>T']")
        	(gsettings "org.gnome.settings-daemon.plugins.media-keys" "calculator" "'<Primary>F3'")
@@ -23,16 +23,16 @@
                  (gsettings "org.gnome.desktop.wm.keybindings" "move-to-workspace-up" "['<Primary>Back']")))))
 
 
-(gnome-command-shortcuts
+(gnome command shortcuts
    (and (dconf "gnome-shortcuts.dconf")))
 
-(gnome-wm-settings
+(gnome wm settings
    (and (gsettings "org.gnome.desktop.wm.preferences" "focus-mode" "'sloppy'")
         (gsettings "org.gnome.desktop.wm.preferences" "raise-on-click" "true")
         (gsettings "org.gnome.desktop.wm.preferences" "resize-with-right-button" "true")
         (gsettings "org.gnome.desktop.wm.preferences" "mouse-button-modifier" "'<Alt>'")))
 
-(gnome-terminal
+(gnome terminal
    (and (gsettings "org.gnome.Terminal.Legacy.Settings" "menu-accelerator-enabled" "false")
         (gsettings "org.gnome.Terminal.Legacy.Settings" "default-show-menubar" "false")
         (gsettings "org.gnome.desktop.interface" "monospace-font-name" "Liberation Mono 10")
@@ -99,13 +99,13 @@
         (gsettings "org.gnome.Terminal.Legacy.Keybindings:/" "zoom-out" "disabled")))
 
 
-(gnome-terminal-solarized
+(gnome terminal solarized
    (and (git clone "git://github.com/sigurdga/gnome-terminal-colors-solarized.git"
                    [join [env:HOME] "/src/solarized/gnome-terminal"])
         (change [join [env:HOME] "/src/solarized/gnome-terminal/install.sh"] "-s" "dark" "-p" "solarized")
         (downloaded http "https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-dark" [join [env:HOME] "/.dircolors"])))
 
-(gnome-folders
+(gnome folders
    (and (copy template "user-dirs.dirs" [join [env:HOME] "/.config/user-dirs.dirs"])
         (ensure dir [join [env:HOME] "/downloads"])
         (ensure dir [join [env:HOME] "/doc/templates"])
