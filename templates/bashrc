@@ -12,18 +12,15 @@ fi
 HISTSIZE=2000
 
 # PROMPT
-my_ps_user="\[\033[01;32m\]\u\[\033[00m\]";
-my_ps_host="\[\033[01;36m\]\h\[\033[00m\]";
-my_ps_path="\[\033[01;36m\]\w\[\033[00m\]";
-
 normal="\[\e[0m\]"
-orange="\[\e[0;91m\]"
+orange="\[\e[38;5;166m\]"
+lgrey="\[\e[38;5;253m\]"
 
 SCM_THEME_PROMPT_DIRTY=" ${red}✗"
 SCM_THEME_PROMPT_CLEAN=" ${green}✓"
 
-PS1="${my_ps_user}@${my_ps_host}:${my_ps_path}
-${orange}→${normal} "
+PS1="${lgrey}\u\[\033[0m\]@\h:\w
+${orange}>${normal} "
 
 eval `dircolors ~/.dircolors`
 
