@@ -19,7 +19,7 @@ lgrey="\[\e[38;5;253m\]"
 SCM_THEME_PROMPT_DIRTY=" ${red}✗"
 SCM_THEME_PROMPT_CLEAN=" ${green}✓"
 
-PS1="${lgrey}\u\[\033[0m\]@\h:\w
+PS1="${orange}\u\[\033[0m\]@\h:\w
 ${orange}>${normal} "
 
 eval `dircolors ~/.dircolors`
