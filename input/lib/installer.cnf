@@ -1,3 +1,8 @@
-(installed 
+(installed
   (or (test "yum" "--quiet" "list" "installed" [arg:0])
       (change "sudo" "yum" "install" "--assumeyes" [arg:0])))
+
+
+(repo installed
+  (or (test "yum" "--quiet" "list" "installed" [arg:0])
+      (change "sudo" "yum" "install" "--assumeyes" [arg:1])))
