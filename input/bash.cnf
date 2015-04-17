@@ -2,4 +2,5 @@
    (and (bashrc installed)))
 
 (bashrc installed
-   (copy template "bashrc" [join [env:HOME] "/.bashrc"]))
+   (and (copy template "bashrc" [join [env:HOME] "/.bashrc"])
+        (copy template "bash_alias" [join [env:HOME] "/.bash_alias"])))

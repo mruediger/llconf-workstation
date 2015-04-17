@@ -1,0 +1,4 @@
+alias ls='ls --color=tty'
+alias en='emacs -nw'
+alias grep='grep --binary-files=without-match --directories=skip'
+alias gos='go-search'

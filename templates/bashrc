@@ -9,6 +9,10 @@ if [ -f ~/.bash_d3media ]; then
   . ~/.bash_d3media
 fi
 
+if [ -f ~/.bash_alias ]; then
+  . ~/.bash_alias
+fi
+
 HISTSIZE=2000
 
 # PROMPT
@@ -30,9 +34,4 @@ export GOPATH=$HOME/src/go
 export PATH=$PATH:$GOPATH/bin
 export GOROOT=$HOME/install/go
 export PATH=$PATH:$GOROOT/bin
-
-alias ls='ls --color=tty'
-alias en='emacs -nw'
-alias grep='grep --binary-files=without-match --directories=skip'
-
 export PATH="$PATH:$HOME/.rvm/bin"
