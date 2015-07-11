@@ -1,11 +1,9 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
-Type=Application
-Name=IntelliJ IDEA Community Edition
-Icon=/home/mathias/install/idea/idea-IC-139.225.3/bin/idea.png
-Exec="/home/mathias/install/idea/idea-IC-139.225.3/bin/idea.sh" %f
-Comment=Develop with pleasure!
-Categories=Development;IDE;
 Terminal=false
-StartupNotify=true
-StartupWMClass=jetbrains-idea-ce
+Type=Application
+Name=IntelliJ IDEA
+
+Icon=/home/bag/install/idea/idea-IC-141.1532.4/bin/idea.png
+Exec="/home/bag/install/idea/idea-IC-141.1532.4/bin/idea.sh" %f

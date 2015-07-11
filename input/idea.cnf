@@ -3,7 +3,8 @@
    (idea installed)))
 
 (java installed
-   (installed "java-1.8.0-openjdk-devel"))
+   (and (installed "java-1.8.0-openjdk-devel")
+        (installed "java-1.8.0-openjdk-src")
 
 (idea installed
    (or (dir exists [join [env:HOME] "/install/idea/idea-IC-141.1532.4"])
