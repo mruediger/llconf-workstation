@@ -1,0 +1,3 @@
+(chrome ready
+  (or (test "dnf" "--quiet" "list" "installed" "google-chrome-stable.x86_64")
+      (change "sudo" "dnf" "install" "--assumeyes" "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm")))
