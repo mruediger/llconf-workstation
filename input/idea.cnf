@@ -1,4 +1,5 @@
 (idea ready (and
+   (setvar "idea-version" "14.1.4")
    (java installed)
    (idea installed)))
 
@@ -7,9 +8,11 @@
         (installed "java-1.8.0-openjdk-src")
 
 (idea installed
-   (or (dir exists [join [env:HOME] "/install/idea/idea-IC-141.1532.4"])
+   (or (dir exists [join [env:HOME] "/install/idea/idea-" [var:idea-version]])
        (and (ensure dir [join [env:HOME] "/install/idea"])
-            (downloaded http "https://download.jetbrains.com/idea/ideaIC-14.1.4.tar.gz" [join [env:HOME] "/install/idea/ideaIC-14.1.4.tar.gz"])
+            (downloaded http
+               [join "http://download-cf.jetbrains.com/idea/ideaIC-" [var:idea-version] ".tar.gz"]
+               [join [env:HOME] "/install/idea/ideaIC-" [var:idea-version] ".tar.gz"])
             (indir [join [env:HOME] "/install/idea"]
-                   (change "tar" "xzf" "ideaIC-14.1.4.tar.gz"))
-                   (copy template "jetbrains-idea.desktop" [join [env:HOME] "/.local/share/applications/jetbrains-idea.desktop"]))))
+               (change "tar" "xzf" [join "ideaIC-" [var:idea-version] ".tar.gz"]))
+            (copy template "jetbrains-idea.desktop" [join [env:HOME] "/.local/share/applications/jetbrains-idea.desktop"]))))
